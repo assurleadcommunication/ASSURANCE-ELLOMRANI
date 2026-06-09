@@ -264,12 +264,41 @@ const Hero = () => {
 
 
 const Services = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 45, 
+      scale: 0.96 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 14,
+      }
+    },
+  };
+
   return (
     <section id="offres" className="py-24 bg-axa-blue text-white relative overflow-hidden page-section">
       {/* Motif Traditionnel Marocain de Zellige */}
       <div className="absolute inset-0 opacity-[0.16] pointer-events-none z-0">
         <div className="absolute inset-0" style={{ 
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%2338bdf8' stroke-width='1.2'%3E%3Cpath d='M40 16L44 30L57 23L50 36L64 40L50 44L57 57L44 50L40 64L36 50L23 57L30 44L16 40L30 36L23 23L36 30Z'/%3E%3Cpath d='M0-24L4-10L17-17L10-4L24 0L10 4L17 17L4 10L0 24L-4 10L-17 17L-10 4L-24 0L-10-4L-17-17L-4-10Z'/%3E%3Cpath d='M80-24L84-10L97-17L90-4L104 0L90 4L97 17L84 10L80 24L76 10L63 17L70 4L56 0L70-4L63-17L76-10Z'/%3E%3Cpath d='M0 56L4 70L17 63L10 76L24 80L10 84L17 97L4 90L0 104L-4 90L-17 97L-10 84L-24 80L-10 76L-17 63L-4 70Z'/%3E%3Cpath d='M80 56L84 70L97 63L90 76L104 80L90 84L97 97L84 90L80 104L76 90L63 97L70 84L56 80L70 76L63 63L76 70Z'/%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Cpath d='M40 0L80 40L40 80L0 40Z'/%3E%3Crect x='-20' y='-20' width='40' height='40'/%3E%3Crect x='60' y='-20' width='40' height='40'/%3E%3C-20' y='60' width='40' height='40'/%3E%3Crect x='60' y='60' width='40' height='40'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%2338bdf8' stroke-width='1.2'%3E%3Cpath d='M40 16L44 30L57 23L50 36L64 40L50 44L57 57L44 50L40 64L36 50L23 57L30 44L16 40L30 36L23 23L36 30Z'/%3E%3Cpath d='M0-24L4-10L17-17L10-4L24 0L10 4L17 17L4 10L0 24L-4 10L-17 17L-10 4L-24 0L-10-4L-17-17L-4-10Z'/%3E%3Cpath d='M80-24L84-10L97-17L90-4L104 0L90 4L97 17L84 10L80 24L76 10L63 17L70 4L56 0L70-4L63-17L76-10Z'/%3E%3Cpath d='M0 56L4 70L17 63L10 76L24 80L10 84L17 97L4 90L0 104L-4 90L-17 97L-10 84L-24 80L-10 76L-17 63L-4 70Z'/%3E%3Cpath d='M80 56L84 70L97 63L90 76L104 80L90 84L97 97L84 90L80 104L76 90L63 97L70 84L56 80L70 76L63 63L76 70Z'/%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Cpath d='M40 0L80 40L40 80L0 40Z'/%3E%3Crect x='-20' y='-20' width='40' height='40'/%3E%3Crect x='60' y='-20' width='40' height='40'/%3E%3Crect x='-20' y='60' width='40' height='40'/%3E%3Crect x='60' y='60' width='40' height='40'/%3E%3C/g%3E%3C/svg%3E")`,
           backgroundRepeat: 'repeat',
           backgroundSize: '80px 80px'
         }}></div>
@@ -283,17 +312,20 @@ const Services = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6"
+        >
           {SERVICES.map((service, index) => {
             // Bento Grid Logic: First two are larger
             const isLarge = index === 0 || index === 1;
             return (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                variants={cardVariants}
                 className={`bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all border border-white/10 group cursor-pointer flex flex-col justify-between ${
                   isLarge ? 'md:col-span-2 lg:col-span-3 min-h-[320px]' : 'md:col-span-2 lg:col-span-2 min-h-[280px]'
                 }`}
@@ -311,7 +343,7 @@ const Services = () => {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
