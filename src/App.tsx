@@ -851,8 +851,8 @@ const CTA_Popup = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-axa-blue text-white py-12 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <footer className="bg-gray-900 text-white py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-2">
             <div className="flex items-center gap-4 mb-6">
@@ -861,50 +861,50 @@ const Footer = () => {
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-2xl tracking-tighter">
-                  AXA <span className="text-white">EL OMRANI</span>
+                  AXA <span className="text-axa-red">EL OMRANI</span>
                 </span>
-                <span className="text-[10px] uppercase tracking-widest font-semibold text-blue-200">
+                <span className="text-[10px] uppercase tracking-widest font-semibold text-gray-400">
                   Agent Général Casablanca
                 </span>
               </div>
             </div>
-            <p className="text-blue-100/80 max-w-sm mb-6">
+            <p className="text-gray-400 max-w-sm mb-6">
               Votre partenaire de confiance pour toutes vos assurances au Maroc. Expertise AXA et service de proximité.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-colors duration-300">
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-axa-blue transition-colors duration-300">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-colors duration-300">
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-axa-blue transition-colors duration-300">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-axa-red transition-colors duration-300">
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-axa-blue transition-colors duration-300">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
           </div>
           
           <div>
-            <h4 className="font-bold mb-6 text-white text-lg">Liens Rapides</h4>
-            <ul className="space-y-4 text-blue-100/80 text-sm">
-              <li><a href="#accueil" className="hover:text-white hover:underline transition-all">Accueil</a></li>
-              <li><a href="#historique" className="hover:text-white hover:underline transition-all">Historique</a></li>
-              <li><a href="#offres" className="hover:text-white hover:underline transition-all">Offres</a></li>
-              <li><a href="#contact" className="hover:text-white hover:underline transition-all">Contact</a></li>
+            <h4 className="font-bold mb-6">Liens Rapides</h4>
+            <ul className="space-y-4 text-gray-400 text-sm">
+              <li><a href="#accueil" className="hover:text-white transition-colors">Accueil</a></li>
+              <li><a href="#historique" className="hover:text-white transition-colors">Historique</a></li>
+              <li><a href="#offres" className="hover:text-white transition-colors">Offres</a></li>
+              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-bold mb-6 text-white text-lg">Légal</h4>
-            <ul className="space-y-4 text-blue-100/80 text-sm">
-              <li><a href="#" className="hover:text-white hover:underline transition-all">Mentions Légales</a></li>
-              <li><a href="#" className="hover:text-white hover:underline transition-all">Politique de Confidentialité</a></li>
-              <li><a href="#" className="hover:text-white hover:underline transition-all">Cookies</a></li>
+            <h4 className="font-bold mb-6">Légal</h4>
+            <ul className="space-y-4 text-gray-400 text-sm">
+              <li><a href="#" className="hover:text-white transition-colors">Mentions Légales</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Politique de Confidentialité</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Cookies</a></li>
             </ul>
           </div>
         </div>
         
-        <div className="pt-8 border-t border-white/15 text-center text-blue-200/60 text-xs">
+        <div className="pt-8 border-t border-gray-800 text-center text-gray-500 text-xs">
           <p>© {new Date().getFullYear()} Assurances EL OMRANI. Tous droits réservés. Agent Général AXA Maroc.</p>
         </div>
       </div>
